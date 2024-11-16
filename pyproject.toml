@@ -1,14 +1,14 @@
 [project]
-name = "photo-organizer"
+name = "simple-file-org"
 version = "0.1.0"
-description = "Add your description here"
+description = "Organize files into folders based on creation times"
 dependencies = [
     "pydate>=1.2.0",
     "typer>=0.12.3",
     "pytz>=2024.1",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]
@@ -16,10 +16,18 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=8.3.3",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/photo_organizer"]
+packages = ["src/simple_file_org"]
+
+[tool.rye.scripts]
+unit = "pytest tests/unit"
+
+[project.scripts]
+simple-file-org = "simple_file_org.main:main"
