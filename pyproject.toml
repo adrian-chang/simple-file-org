@@ -1,6 +1,6 @@
 [project]
 name = "simple-file-org"
-version = "0.1.0"
+version = "0.1.1"
 description = "Organize files into folders based on creation times"
 dependencies = [
     "pydate>=1.2.0",

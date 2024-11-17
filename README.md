@@ -1,13 +1,13 @@
-# file-org
+# simple-file-org
 
 A very simple tool to organize files into folders based on creation times.
 
 ## Usage
 
 ```bash
-file-org --help
+simple-file-org --help
 
-Usage: file-org [OPTIONS] SOURCE TARGET
+Usage: simple-file-org [OPTIONS] SOURCE TARGET
 
 Organizes files in the specified folder by year and date.
 Args:     source (Path): The folder path where the files will be read from.     target (Path): The folder path where the files will be moved to.
@@ -25,7 +25,7 @@ Returns:     None
 ## Installation
 
 ```bash
-pip install file-org
+pip install simple-file-org
 ```
 
 ## Development
