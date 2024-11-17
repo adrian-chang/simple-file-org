@@ -94,6 +94,7 @@ def all(
         None
     """
     logger.info(f"Organizing files in {source} to {target}")
+    target.mkdir(parents=True, exist_ok=True)
     with open(target / "errors.jsonl", "w") as f:
         for file_path in source.rglob('*'):
             if file_path.is_file() and file_path.name.startswith('.'):
