@@ -57,7 +57,12 @@ def get_destination_path(file_path: Path, target: Path) -> Path:
     
     logger.info(f"Found file: {file_path}, Creation time: {creation_time.strftime('%Y-%m-%d %H:%M:%S')}, Modified time: {modified_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    target_directory = Path(target, creation_time.strftime("%Y"), creation_time.strftime("%B")[0:3], f"{creation_time.month}-{creation_time.day}")
+    if creation_time < modified_time:
+        logger.info(f"Using creation time for file {file_path}")
+        target_directory = Path(target, creation_time.strftime("%Y"), creation_time.strftime("%B")[0:3], f"{creation_time.month}-{creation_time.day}")
+    else:
+        logger.info(f"Using modified time for file {file_path}")
+        target_directory = Path(target, modified_time.strftime("%Y"), modified_time.strftime("%B")[0:3], f"{modified_time.month}-{modified_time.day}")
     destination_path = target_directory / file_path.name
     target_directory.mkdir(parents=True, exist_ok=True)
 
